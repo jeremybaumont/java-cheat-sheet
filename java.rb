@@ -9,7 +9,7 @@ cheatsheet do
             notes <<-'END'
             ```
             Observable<T> obs = ...;
-            List<T> l = obs.toList().blocking().single();
+            List<T> l = obs.toList().toBlocking().single();
             ```
             END
         end
