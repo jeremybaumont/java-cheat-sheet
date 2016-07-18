@@ -14,5 +14,21 @@ cheatsheet do
             END
         end
     end
+    category do
+        id 'Streams'
+        entry do
+            name 'List of maps to single map, clobbering duplicate keys'
+            notes <<-'END'
+            ```
+            List<Map<String, Long>> input = ...;
+            output = input.stream().reduce(new HashMap<>(), (x, y) -> {
+                Map<String, Long> result = new HashMap<>(x);
+                result.putAll(y);
+                return result;
+            });
+            ```
+            END
+        end
+    end
 end
 
