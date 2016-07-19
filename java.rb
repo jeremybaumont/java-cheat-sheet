@@ -30,5 +30,21 @@ cheatsheet do
             END
         end
     end
+
+    category do
+        id 'Mocking'
+        entry do
+            name 'Create mock object with method'
+            notes <<-'END'
+            ```
+            import static org.mockito.Mockito.mock;
+            import static org.mockito.Mockito.when;
+
+            MyClass x = mock(MyClass.class);
+            when(x.myFunc()).thenReturn("dummy value");
+            ```
+            END
+        end
+    end
 end
 
