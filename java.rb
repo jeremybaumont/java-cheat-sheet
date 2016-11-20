@@ -69,5 +69,21 @@ cheatsheet do
             END
         end
     end
+    category do
+        id 'JSON'
+        entry do
+            name 'Populate JsonNode'
+            notes <<-'END'
+            ```java
+            import org.codehaus.jackson.map.ObjectMapper;
+            import org.codehaus.jackson.JsonNode;
+
+            String json = "{\"foo\": 12}";
+
+            JsonNode data = new ObjectMapper().readTree(json);
+            ```
+            END
+        end
+    end
 end
 
