@@ -85,5 +85,26 @@ cheatsheet do
             END
         end
     end
+    category do
+        id 'Gradle'
+        entry do
+            name 'Execute from the command-line'
+            notes <<-'END'
+            In build.gradle
+
+            ```groovy
+            apply plugin: 'application'
+            mainClassName = "org.example.packagename.MyClass"
+            ```
+
+            To execute:
+
+            ```bash
+            gradlew run
+            ```
+
+            END
+        end
+    end
 end
 
