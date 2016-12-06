@@ -59,6 +59,30 @@ cheatsheet do
             END
         end
         entry do
+            name 'Capture an argument'
+            notes <<-'END'
+            ```java
+            import org.mockito.ArgumentCaptor;
+
+            import static org.mockito.Mockito.mock;
+            import static org.mockito.Mockito.when;
+
+            // Setup
+            Client client = mock(Client.class);
+            Response response = mock(Response.class);
+
+            // Argument capture logic here
+            ArgumentCaptor<URI> url = ArgumentCaptor.forClass(URI.class);
+            when(client.get(url.capture())).thenReturn(response);
+
+            // Code under test, expects to call client.get
+            myClass.doTheThing(client);
+
+            assertEquals("http://www.example.com", url.getValue().toString());
+            ```
+            END
+        end
+        entry do
             name 'Unmock a single method'
             notes <<-'END'
             ```java
