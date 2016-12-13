@@ -34,7 +34,7 @@ cheatsheet do
     category do
         id 'Mocking'
         entry do
-            name 'Create mock object with method'
+            name 'Set method behavior of mock object'
             notes <<-'END'
             ```java
             import static org.mockito.Mockito.mock;
@@ -53,7 +53,38 @@ cheatsheet do
             import static org.mockito.Mockito.mock;
             import static org.mockito.Matchers.any;
 
+            MyClass x = mock(MyClass.class);
+
             when(x.foo(any())).thenReturn(12);
+
+            ```
+            END
+        end
+        entry do
+            name 'Check that a mock was called'
+            notes <<-'END'
+            ```java
+            import static org.mockito.Mockito.mock;
+            import static org.mockito.Matchers.any;
+
+            MyClass x = mock(MyClass.class);
+            ...
+            verify(x).foo(any());
+
+            ```
+            END
+        end
+        entry do
+            name 'Check that a mock was never called'
+            notes <<-'END'
+            ```java
+            import static org.mockito.Matchers.any;
+            import static org.mockito.Mockito.mock;
+            import static org.mockito.Mockito.never;
+
+            MyClass x = mock(MyClass.class);
+            ...
+            verify(x, never()).foo(any());
 
             ```
             END
