@@ -114,6 +114,17 @@ cheatsheet do
             END
         end
         entry do
+            name 'Capture an argument with a method that returns void'
+            notes <<-'END'
+            ```java
+            ArgumentCaptor<URI> url = ArgumentCaptor.forClass(URI.class);
+            doNothing().when(client).get(url.capture()));
+
+            assertEquals("http://www.example.com", url.getValue().toString());
+            ```
+            END
+        end
+        entry do
             name 'Unmock a single method'
             notes <<-'END'
             ```java
