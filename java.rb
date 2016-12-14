@@ -136,6 +136,72 @@ cheatsheet do
         end
     end
     category do
+        id 'Parameterized tests'
+        entry do
+            name 'Official docs'
+            notes <<-'END'
+            <https://github.com/junit-team/junit4/wiki/Parameterized-tests>
+            END
+        end
+        entry do
+            name 'Only one variable changes'
+            notes <<-'END'
+            ```java
+            import java.util.Arrays;
+
+            import org.junit.runner.RunWith;
+            import org.junit.runners.Parameterized;
+            import org.junit.runners.Parameterized.Parameter;
+            import org.junit.runners.Parameterized.Parameters;
+
+            @RunWith(Parameterized.class)
+            public class MyTest {
+                @Parameters
+                public static Iterable<? extends Object> data() {
+                    return Arrays.asList("foo", "bar");
+                }
+            }
+
+                @Parameter
+                public String value;
+            ...
+            ```
+            END
+        end
+        entry do
+            name 'Multiple variables change'
+            notes <<-'END'
+            ```java
+            import java.util.Arrays;
+
+            import org.junit.runner.RunWith;
+            import org.junit.runners.Parameterized;
+            import org.junit.runners.Parameterized.Parameter;
+            import org.junit.runners.Parameterized.Parameters;
+
+            @RunWith(Parameterized.class)
+            public class MyTest {
+                @Parameters
+                public static Collection<Object[]> data() {
+                    return Arrays.asList(new Object[][] {
+                     {1, 2, 4}, {3, 5, 12}
+               });
+
+
+               @Parameter
+               public int x;
+
+               @Parameter(value=1)
+               public int y;
+
+               @Parameter(value=2)
+               public int z;
+            }
+            ```
+            END
+        end
+    end
+    category do
         id 'JSON'
         entry do
             name 'Populate JsonNode'
