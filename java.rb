@@ -125,6 +125,18 @@ cheatsheet do
             END
         end
         entry do
+            name 'Mock a single method with spy'
+            notes <<-'END'
+            ```java
+            import org.mockito.Mockito;
+            import static org.mockito.Mockito.spy;
+
+            MyClass x = spy(new MyClass());
+            Mockito.doReturn("hello").when(x).foo();
+            ```
+            END
+        end
+        entry do
             name 'Unmock a single method'
             notes <<-'END'
             ```java
