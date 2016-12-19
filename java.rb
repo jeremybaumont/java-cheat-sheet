@@ -75,6 +75,17 @@ cheatsheet do
             END
         end
         entry do
+            name 'Check some arguments but not all'
+            notes <<-'END'
+            If you want to use `any()` on some args,
+            you need to use `eq` to match other ones exactly.
+
+            ```
+            verify(x).foo(eq("one"), any());
+            ```
+            END
+        end
+        entry do
             name 'Check that a mock was never called'
             notes <<-'END'
             ```java
