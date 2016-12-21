@@ -223,6 +223,18 @@ cheatsheet do
             ```
             END
         end
+        entry do
+            name 'Some tests paramterized, some not'
+            notes <<-'END'
+            Need an outer test class annotated with
+
+            ````
+            @RunWith(Enclosed.class)
+            ```
+
+            Then have public inner static test classes, annotate the parameterized one.
+            END
+        end
     end
     category do
         id 'JSON'
